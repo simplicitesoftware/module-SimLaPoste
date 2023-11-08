@@ -1,0 +1,847 @@
+{
+ "object": "Module",
+ "userkey": "SimLaPoste",
+ "item": {
+  "mdl_name": "SimLaPoste",
+  "mdl_prefix": "lp",
+  "mdl_version": "1",
+  "mdl_type": "W",
+  "mdl_url": null,
+  "mdl_comment": "Datanova La Poste"
+ },
+ "links": [
+  {
+   "object": "View",
+   "label": "Views",
+   "icon": "img/system/view",
+   "field": "row_module_id",
+   "list": [{
+    "object": "View",
+    "userkey": "SimLaPosteScope",
+    "item": {
+     "viw_name": "SimLaPosteScope",
+     "viw_ui": null,
+     "viw_order": 1,
+     "viw_icon": "map",
+     "viw_disp_id__dis_code": null,
+     "viw_scope": "SimLaPosteScope",
+     "row_module_id__mdl_name": "SimLaPoste",
+     "viw_theme_id__thm_name": null,
+     "viw_lang": null
+    }
+   }]
+  },
+  {
+   "object": "Model",
+   "label": "Data model",
+   "icon": "img/system/model",
+   "field": "row_module_id",
+   "list": [{
+    "object": "Model",
+    "userkey": "La Poste",
+    "item": {
+     "mod_name": "La Poste",
+     "mod_template_id__mtp_name": "ModelBusinessObject",
+     "mod_doc": {
+      "path": "files/Model/La Poste.svg",
+      "mime": "image/svg+xml",
+      "name": "model.svg"
+     },
+     "mod_json": null,
+     "mod_image": {
+      "path": "files/Model/La Poste.png",
+      "mime": "image/png",
+      "name": "La Poste.png"
+     },
+     "row_module_id__mdl_name": "SimLaPoste"
+    }
+   }]
+  },
+  {
+   "object": "Group",
+   "label": "Groups",
+   "icon": "img/system/group",
+   "field": "row_module_id",
+   "list": [
+    {
+     "object": "Group",
+     "userkey": "LP_ADMIN",
+     "item": {
+      "grp_name": "LP_ADMIN",
+      "grp_comment": null,
+      "grp_type": ["G"],
+      "grp_parent_id__grp_name": null,
+      "grp_home_id__viw_name": null,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "Group",
+     "userkey": "LP_READ",
+     "item": {
+      "grp_name": "LP_READ",
+      "grp_comment": null,
+      "grp_type": ["G"],
+      "grp_parent_id__grp_name": null,
+      "grp_home_id__viw_name": "SimLaPosteScope",
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    }
+   ]
+  },
+  {
+   "object": "Field",
+   "label": "Fields",
+   "icon": "img/system/field",
+   "field": "row_module_id",
+   "list": [
+    {
+     "object": "Field",
+     "userkey": "lpCpInseeCode",
+     "item": {
+      "fld_name": "lpCpInseeCode",
+      "fld_dbname": "lp_cp_insee_code",
+      "fld_visible": "3",
+      "fld_updatable": "1",
+      "fld_required": true,
+      "fld_fonctid": true,
+      "fld_research": "1",
+      "fld_researchreq": "0",
+      "fld_sort": "C",
+      "fld_more": false,
+      "fld_listmore": false,
+      "fld_listsum": null,
+      "fld_exportable": true,
+      "fld_tray": null,
+      "fld_type": "3",
+      "fld_type_id__flt_code": null,
+      "fld_list_id__lov_name": null,
+      "fld_copy": true,
+      "fld_size": 50,
+      "fld_minsize": null,
+      "fld_precision": null,
+      "fld_fromdate_id__fld_name": null,
+      "fld_dfault": null,
+      "fld_indexable": false,
+      "fld_autocomp": "0",
+      "fld_groupby": false,
+      "fld_updall": true,
+      "fld_case": null,
+      "fld_righttoleft": false,
+      "fld_rendering": null,
+      "fld_speech": null,
+      "fld_calc": null,
+      "fld_objlist": null,
+      "fld_comment": null,
+      "fld_classification": null,
+      "row_module_id__mdl_name": "SimLaPoste",
+      "fld_incrementsyntax": null
+     }
+    },
+    {
+     "object": "Field",
+     "userkey": "lpCpPostalCode",
+     "item": {
+      "fld_name": "lpCpPostalCode",
+      "fld_dbname": "lp_cp_postal_code",
+      "fld_visible": "3",
+      "fld_updatable": "1",
+      "fld_required": false,
+      "fld_fonctid": false,
+      "fld_research": "1",
+      "fld_researchreq": "0",
+      "fld_sort": "C",
+      "fld_more": false,
+      "fld_listmore": false,
+      "fld_listsum": null,
+      "fld_exportable": true,
+      "fld_tray": null,
+      "fld_type": "3",
+      "fld_type_id__flt_code": null,
+      "fld_list_id__lov_name": null,
+      "fld_copy": true,
+      "fld_size": 20,
+      "fld_minsize": null,
+      "fld_precision": null,
+      "fld_fromdate_id__fld_name": null,
+      "fld_dfault": null,
+      "fld_indexable": false,
+      "fld_autocomp": "0",
+      "fld_groupby": false,
+      "fld_updall": true,
+      "fld_case": null,
+      "fld_righttoleft": false,
+      "fld_rendering": null,
+      "fld_speech": null,
+      "fld_calc": null,
+      "fld_objlist": null,
+      "fld_comment": null,
+      "fld_classification": null,
+      "row_module_id__mdl_name": "SimLaPoste",
+      "fld_incrementsyntax": null
+     }
+    },
+    {
+     "object": "Field",
+     "userkey": "lpCpTownName",
+     "item": {
+      "fld_name": "lpCpTownName",
+      "fld_dbname": "lp_cp_town_name",
+      "fld_visible": "3",
+      "fld_updatable": "1",
+      "fld_required": false,
+      "fld_fonctid": false,
+      "fld_research": "1",
+      "fld_researchreq": "0",
+      "fld_sort": "C",
+      "fld_more": false,
+      "fld_listmore": false,
+      "fld_listsum": null,
+      "fld_exportable": true,
+      "fld_tray": null,
+      "fld_type": "13",
+      "fld_type_id__flt_code": null,
+      "fld_list_id__lov_name": null,
+      "fld_copy": true,
+      "fld_size": 1000,
+      "fld_minsize": null,
+      "fld_precision": null,
+      "fld_fromdate_id__fld_name": null,
+      "fld_dfault": null,
+      "fld_indexable": false,
+      "fld_autocomp": "0",
+      "fld_groupby": false,
+      "fld_updall": true,
+      "fld_case": null,
+      "fld_righttoleft": false,
+      "fld_rendering": null,
+      "fld_speech": null,
+      "fld_calc": null,
+      "fld_objlist": null,
+      "fld_comment": null,
+      "fld_classification": null,
+      "row_module_id__mdl_name": "SimLaPoste",
+      "fld_incrementsyntax": null
+     }
+    }
+   ]
+  },
+  {
+   "object": "Template",
+   "label": "Templates",
+   "icon": "img/system/template",
+   "field": "row_module_id",
+   "list": [{
+    "object": "Template",
+    "userkey": "SimLpPostalCode",
+    "item": {
+     "tpl_name": "SimLpPostalCode",
+     "tpl_ui": "<div class=\"area\" data-area=\"1\"><\/div>",
+     "tpl_min": null,
+     "tpl_image": null,
+     "row_module_id__mdl_name": "SimLaPoste"
+    }
+   }]
+  },
+  {
+   "object": "ObjectFieldArea",
+   "label": "Fields areas",
+   "icon": "img/system/field_area",
+   "field": "row_module_id",
+   "list": [{
+    "object": "ObjectFieldArea",
+    "userkey": "SimLpPostalCode-1",
+    "item": {
+     "ofa_name": "SimLpPostalCode-1",
+     "ofa_position": 1,
+     "ofa_title": false,
+     "ofa_ui": "<div>\n  <div class=\"field\" data-field=\"lpCpInseeCode\"><\/div>\n  <div class=\"field\" data-field=\"lpCpPostalCode\"><\/div>\n  <div class=\"field\" data-field=\"lpCpTownName\"><\/div>\n<\/div>",
+     "ofa_icon": "star",
+     "row_module_id__mdl_name": "SimLaPoste"
+    }
+   }]
+  },
+  {
+   "object": "Domain",
+   "label": "Domains",
+   "icon": "img/system/domain",
+   "field": "row_module_id",
+   "list": [{
+    "object": "Domain",
+    "userkey": "LpDomain",
+    "item": {
+     "obd_name": "LpDomain",
+     "obd_comment": null,
+     "obd_type": "D",
+     "obd_view_id__viw_name": null,
+     "obd_nohome": true,
+     "obd_icon": null,
+     "obd_order": 1000,
+     "obd_domain_id__obd_name": null,
+     "row_module_id__mdl_name": "SimLaPoste"
+    }
+   }]
+  },
+  {
+   "object": "ObjectInternal",
+   "label": "Business objects",
+   "icon": "img/system/business_object",
+   "field": "row_module_id",
+   "list": [{
+    "object": "ObjectInternal",
+    "userkey": "SimLpPostalCode",
+    "item": {
+     "obo_name": {
+      "value": "SimLpPostalCode",
+      "oldvalue": "SimLpPostalCode"
+     },
+     "obo_dbtable": "service",
+     "obo_role": "OBJ",
+     "obo_class": null,
+     "obo_script_id": {
+      "path": "src/com/simplicite/objects/SimLaPoste/SimLpPostalCode.java",
+      "mime": "text/plain",
+      "name": "SimLpPostalCode.java"
+     },
+     "obo_usets": "1",
+     "obo_nosearch": "1",
+     "obo_comment": "https://datanova.laposte.fr/datasets/laposte-hexasmal",
+     "obo_type": "O",
+     "obo_searchspec": null,
+     "obo_delspec": null,
+     "obo_exportorder": null,
+     "obo_distinct": false,
+     "obo_indexable": false,
+     "obo_groupby": false,
+     "obo_dfltref": null,
+     "obo_template_id__tpl_name": "SimLpPostalCode",
+     "obo_copy": true,
+     "obo_export": true,
+     "obo_pagine": true,
+     "obo_srh_predef": ["1"],
+     "obo_selrow": true,
+     "obo_updall": true,
+     "obo_delall": true,
+     "obo_listsearch": true,
+     "obo_list_edit": [
+      "N",
+      "L",
+      "E"
+     ],
+     "obo_useform": true,
+     "obo_title": null,
+     "obo_icon": null,
+     "obo_refcount": false,
+     "obo_tree": false,
+     "obo_viewmode": "T",
+     "obo_historic": null,
+     "obo_printable": true,
+     "obo_followlink": true,
+     "obo_mergeable": false,
+     "obo_social": ["1"],
+     "obo_rowid_id__fld_name": null,
+     "obo_extend_id__obj_name": null,
+     "row_module_id__mdl_name": "SimLaPoste",
+     "obo_btn_reload": "P",
+     "obo_btn_prefs": "P",
+     "obo_btn_bookmark": "1",
+     "obo_btn_del": "P",
+     "obo_btn_copy": "P",
+     "obo_btn_export": "P",
+     "obo_btn_listadd": "1",
+     "obo_btn_listedit": "1",
+     "obo_btn_listupsert": "1",
+     "obo_btn_updall": "P",
+     "obo_btn_delall": "P",
+     "obo_btn_merge": "P",
+     "obo_btn_save": true,
+     "obo_btn_saveclose": true,
+     "obo_btn_savenew": true,
+     "obo_btn_savecopy": true,
+     "obo_btn_close": true,
+     "obo_tray": true,
+     "obo_dashboard": true,
+     "obo_prefix": "cp",
+     "obo_search_ts": null,
+     "obo_minrows": null,
+     "obo_maxrows": null,
+     "obo_sortable": true,
+     "obo_list_areas": null
+    }
+   }]
+  },
+  {
+   "object": "ObjectFieldSystem",
+   "label": "Object fields",
+   "icon": "img/system/object_field",
+   "field": "row_module_id",
+   "list": [
+    {
+     "object": "ObjectFieldSystem",
+     "userkey": "SimLpPostalCode~lpCpPostalCode~10",
+     "item": {
+      "obf_object_id__obo_name": "SimLpPostalCode",
+      "obf_field_id__fld_name": "lpCpPostalCode",
+      "obf_field_id__fld_type": "3",
+      "obf_order": 10,
+      "obf_group_by": null,
+      "obf_dfault_order": null,
+      "obf_input": null,
+      "obf_ref_field_id__fld_name": null,
+      "obf_ref_object_id__obo_name": null,
+      "obf_cascad": null,
+      "obf_card": null,
+      "obf_visible": null,
+      "obf_ref_export": true,
+      "obf_copy": null,
+      "obf_ref_order": null,
+      "obf_fld_visible": null,
+      "obf_fld_required": null,
+      "obf_fld_updatable": null,
+      "obf_fld_research": null,
+      "obf_fld_more": null,
+      "obf_fld_listmore": null,
+      "obf_fld_researchreq": null,
+      "obf_fld_dfault": null,
+      "obf_field_id__fld_dfault": null,
+      "obf_fld_exportable": null,
+      "obf_field_id__fld_exportable": true,
+      "obf_fld_uk": null,
+      "obf_area_id__ofa_name": "SimLpPostalCode-1",
+      "obf_area_id__ofa_position": 1,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "ObjectFieldSystem",
+     "userkey": "SimLpPostalCode~lpCpInseeCode~20",
+     "item": {
+      "obf_object_id__obo_name": "SimLpPostalCode",
+      "obf_field_id__fld_name": "lpCpInseeCode",
+      "obf_field_id__fld_type": "3",
+      "obf_order": 20,
+      "obf_group_by": null,
+      "obf_dfault_order": 1,
+      "obf_input": null,
+      "obf_ref_field_id__fld_name": null,
+      "obf_ref_object_id__obo_name": null,
+      "obf_cascad": null,
+      "obf_card": null,
+      "obf_visible": null,
+      "obf_ref_export": true,
+      "obf_copy": null,
+      "obf_ref_order": null,
+      "obf_fld_visible": null,
+      "obf_fld_required": null,
+      "obf_fld_updatable": null,
+      "obf_fld_research": null,
+      "obf_fld_more": null,
+      "obf_fld_listmore": null,
+      "obf_fld_researchreq": null,
+      "obf_fld_dfault": null,
+      "obf_field_id__fld_dfault": null,
+      "obf_fld_exportable": null,
+      "obf_field_id__fld_exportable": true,
+      "obf_fld_uk": null,
+      "obf_area_id__ofa_name": "SimLpPostalCode-1",
+      "obf_area_id__ofa_position": 1,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "ObjectFieldSystem",
+     "userkey": "SimLpPostalCode~lpCpTownName~30",
+     "item": {
+      "obf_object_id__obo_name": "SimLpPostalCode",
+      "obf_field_id__fld_name": "lpCpTownName",
+      "obf_field_id__fld_type": "13",
+      "obf_order": 30,
+      "obf_group_by": null,
+      "obf_dfault_order": null,
+      "obf_input": null,
+      "obf_ref_field_id__fld_name": null,
+      "obf_ref_object_id__obo_name": null,
+      "obf_cascad": null,
+      "obf_card": null,
+      "obf_visible": null,
+      "obf_ref_export": true,
+      "obf_copy": null,
+      "obf_ref_order": null,
+      "obf_fld_visible": null,
+      "obf_fld_required": null,
+      "obf_fld_updatable": null,
+      "obf_fld_research": null,
+      "obf_fld_more": null,
+      "obf_fld_listmore": null,
+      "obf_fld_researchreq": null,
+      "obf_fld_dfault": null,
+      "obf_field_id__fld_dfault": null,
+      "obf_fld_exportable": null,
+      "obf_field_id__fld_exportable": true,
+      "obf_fld_uk": null,
+      "obf_area_id__ofa_name": "SimLpPostalCode-1",
+      "obf_area_id__ofa_position": 1,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    }
+   ]
+  },
+  {
+   "object": "Function",
+   "label": "Functions",
+   "icon": "img/system/function",
+   "field": "row_module_id",
+   "list": [
+    {
+     "object": "Function",
+     "userkey": "LP_DOMAIN_D",
+     "item": {
+      "fct_name": "LP_DOMAIN_D",
+      "fct_object_id__obj_type": "D",
+      "fct_object_id__obj_name": "LpDomain",
+      "fct_function": "L",
+      "fct_action_id__act_name": null,
+      "fct_view_id__viw_name": null,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "Function",
+     "userkey": "STO_CP_CRUD",
+     "item": {
+      "fct_name": "STO_CP_CRUD",
+      "fct_object_id__obj_type": "O",
+      "fct_object_id__obj_name": "SimLpPostalCode",
+      "fct_function": "CMS",
+      "fct_action_id__act_name": null,
+      "fct_view_id__viw_name": null,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "Function",
+     "userkey": "STO_CP_R",
+     "item": {
+      "fct_name": "STO_CP_R",
+      "fct_object_id__obj_type": "O",
+      "fct_object_id__obj_name": "SimLpPostalCode",
+      "fct_function": "L",
+      "fct_action_id__act_name": null,
+      "fct_view_id__viw_name": null,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    }
+   ]
+  },
+  {
+   "object": "Grant",
+   "label": "Grant",
+   "icon": "img/system/grant",
+   "field": "row_module_id",
+   "list": [
+    {
+     "object": "Grant",
+     "userkey": "LP_ADMIN~LP_DOMAIN_D~LpDomain~",
+     "item": {
+      "grt_group_id__grp_name": "LP_ADMIN",
+      "grt_function_id__fct_name": "LP_DOMAIN_D",
+      "grt_function_id__fct_object_id__obj_type": "D",
+      "grt_function_id__fct_object_id__obj_name": "LpDomain",
+      "grt_function_id__fct_action_id__act_name": null,
+      "grt_function_id__fct_function": "L",
+      "grt_activ": true,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "Grant",
+     "userkey": "LP_ADMIN~STO_CP_R~SimLpPostalCode~",
+     "item": {
+      "grt_group_id__grp_name": "LP_ADMIN",
+      "grt_function_id__fct_name": "STO_CP_R",
+      "grt_function_id__fct_object_id__obj_type": "O",
+      "grt_function_id__fct_object_id__obj_name": "SimLpPostalCode",
+      "grt_function_id__fct_action_id__act_name": null,
+      "grt_function_id__fct_function": "L",
+      "grt_activ": true,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "Grant",
+     "userkey": "LP_READ~LP_DOMAIN_D~LpDomain~",
+     "item": {
+      "grt_group_id__grp_name": "LP_READ",
+      "grt_function_id__fct_name": "LP_DOMAIN_D",
+      "grt_function_id__fct_object_id__obj_type": "D",
+      "grt_function_id__fct_object_id__obj_name": "LpDomain",
+      "grt_function_id__fct_action_id__act_name": null,
+      "grt_function_id__fct_function": "L",
+      "grt_activ": true,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "Grant",
+     "userkey": "LP_READ~STO_CP_R~SimLpPostalCode~",
+     "item": {
+      "grt_group_id__grp_name": "LP_READ",
+      "grt_function_id__fct_name": "STO_CP_R",
+      "grt_function_id__fct_object_id__obj_type": "O",
+      "grt_function_id__fct_object_id__obj_name": "SimLpPostalCode",
+      "grt_function_id__fct_action_id__act_name": null,
+      "grt_function_id__fct_function": "L",
+      "grt_activ": true,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    }
+   ]
+  },
+  {
+   "object": "ViewGroup",
+   "label": "Active group",
+   "icon": "object",
+   "field": "row_module_id",
+   "list": [{
+    "object": "ViewGroup",
+    "userkey": "SimLaPosteScope~LP_READ",
+    "item": {
+     "vig_view_id__viw_name": "SimLaPosteScope",
+     "vig_group_id__grp_name": "LP_READ",
+     "vig_group_id__grp_comment": null,
+     "row_module_id__mdl_name": "SimLaPoste"
+    }
+   }]
+  },
+  {
+   "object": "TranslateField",
+   "label": "Field translation",
+   "icon": "img/system/translation",
+   "field": "row_module_id",
+   "list": [
+    {
+     "object": "TranslateField",
+     "userkey": "F~lpCpInseeCode~ENU",
+     "item": {
+      "tsl_typeField": "F",
+      "tsl_id__fld_name": "lpCpInseeCode",
+      "tsl_lang": "ENU",
+      "tsl_value": "Insee Code",
+      "tsl_simplehelp": null,
+      "tsl_short_value": null,
+      "tsl_placeholder": null,
+      "tsl_listhelp": null,
+      "row_module_id__mdl_name": "SimLaPoste",
+      "tsl_tooltip": null
+     }
+    },
+    {
+     "object": "TranslateField",
+     "userkey": "F~lpCpPostalCode~ENU",
+     "item": {
+      "tsl_typeField": "F",
+      "tsl_id__fld_name": "lpCpPostalCode",
+      "tsl_lang": "ENU",
+      "tsl_value": "Postal Code",
+      "tsl_simplehelp": null,
+      "tsl_short_value": null,
+      "tsl_placeholder": null,
+      "tsl_listhelp": null,
+      "row_module_id__mdl_name": "SimLaPoste",
+      "tsl_tooltip": null
+     }
+    },
+    {
+     "object": "TranslateField",
+     "userkey": "F~lpCpTownName~ENU",
+     "item": {
+      "tsl_typeField": "F",
+      "tsl_id__fld_name": "lpCpTownName",
+      "tsl_lang": "ENU",
+      "tsl_value": "Town Name",
+      "tsl_simplehelp": null,
+      "tsl_short_value": null,
+      "tsl_placeholder": null,
+      "tsl_listhelp": null,
+      "row_module_id__mdl_name": "SimLaPoste",
+      "tsl_tooltip": null
+     }
+    },
+    {
+     "object": "TranslateField",
+     "userkey": "F~lpCpInseeCode~FRA",
+     "item": {
+      "tsl_typeField": "F",
+      "tsl_id__fld_name": "lpCpInseeCode",
+      "tsl_lang": "FRA",
+      "tsl_value": "Lp cp insee code",
+      "tsl_simplehelp": null,
+      "tsl_short_value": null,
+      "tsl_placeholder": null,
+      "tsl_listhelp": null,
+      "row_module_id__mdl_name": "SimLaPoste",
+      "tsl_tooltip": null
+     }
+    },
+    {
+     "object": "TranslateField",
+     "userkey": "F~lpCpPostalCode~FRA",
+     "item": {
+      "tsl_typeField": "F",
+      "tsl_id__fld_name": "lpCpPostalCode",
+      "tsl_lang": "FRA",
+      "tsl_value": "Lp cp postal code",
+      "tsl_simplehelp": null,
+      "tsl_short_value": null,
+      "tsl_placeholder": null,
+      "tsl_listhelp": null,
+      "row_module_id__mdl_name": "SimLaPoste",
+      "tsl_tooltip": null
+     }
+    },
+    {
+     "object": "TranslateField",
+     "userkey": "F~lpCpTownName~FRA",
+     "item": {
+      "tsl_typeField": "F",
+      "tsl_id__fld_name": "lpCpTownName",
+      "tsl_lang": "FRA",
+      "tsl_value": "Lp cp town name",
+      "tsl_simplehelp": null,
+      "tsl_short_value": null,
+      "tsl_placeholder": null,
+      "tsl_listhelp": null,
+      "row_module_id__mdl_name": "SimLaPoste",
+      "tsl_tooltip": null
+     }
+    }
+   ]
+  },
+  {
+   "object": "TranslateFieldArea",
+   "label": "Field area translation",
+   "icon": "img/system/translation",
+   "field": "row_module_id",
+   "list": [
+    {
+     "object": "TranslateFieldArea",
+     "userkey": "Z~SimLpPostalCode-1~ENU",
+     "item": {
+      "tsl_typeFieldArea": "Z",
+      "tsl_id__ofa_name": "SimLpPostalCode-1",
+      "tsl_lang": "ENU",
+      "tsl_value": "SimLpPostalCode-1",
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "TranslateFieldArea",
+     "userkey": "Z~SimLpPostalCode-1~FRA",
+     "item": {
+      "tsl_typeFieldArea": "Z",
+      "tsl_id__ofa_name": "SimLpPostalCode-1",
+      "tsl_lang": "FRA",
+      "tsl_value": "Sim lp postal code -1",
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    }
+   ]
+  },
+  {
+   "object": "TranslateDomain",
+   "label": "Domain translation",
+   "icon": "img/system/translation",
+   "field": "row_module_id",
+   "list": [
+    {
+     "object": "TranslateDomain",
+     "userkey": "O~LpDomain~ENU",
+     "item": {
+      "tsl_typeObject": "O",
+      "tsl_id__obd_name": "LpDomain",
+      "tsl_lang": "ENU",
+      "tsl_value": "La Poste",
+      "tsl_help": null,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "TranslateDomain",
+     "userkey": "O~LpDomain~FRA",
+     "item": {
+      "tsl_typeObject": "O",
+      "tsl_id__obd_name": "LpDomain",
+      "tsl_lang": "FRA",
+      "tsl_value": "La Poste",
+      "tsl_help": null,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    }
+   ]
+  },
+  {
+   "object": "TranslateObject",
+   "label": "Object translation",
+   "icon": "img/system/translation",
+   "field": "row_module_id",
+   "list": [
+    {
+     "object": "TranslateObject",
+     "userkey": "O~SimLpPostalCode~ENU",
+     "item": {
+      "tsl_typeObject": "O",
+      "tsl_id__obo_name": "SimLpPostalCode",
+      "tsl_lang": "ENU",
+      "tsl_value": "Postal Code|Postal Codes",
+      "tsl_help": null,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "TranslateObject",
+     "userkey": "O~SimLpPostalCode~FRA",
+     "item": {
+      "tsl_typeObject": "O",
+      "tsl_id__obo_name": "SimLpPostalCode",
+      "tsl_lang": "FRA",
+      "tsl_value": "Code Postal|Codes Postaux",
+      "tsl_help": null,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    }
+   ]
+  },
+  {
+   "object": "TranslateView",
+   "label": "View translation",
+   "icon": "img/system/translation",
+   "field": "row_module_id",
+   "list": [
+    {
+     "object": "TranslateView",
+     "userkey": "V~SimLaPosteScope~ENU",
+     "item": {
+      "tsl_typeView": "V",
+      "tsl_id__viw_name": "SimLaPosteScope",
+      "tsl_lang": "ENU",
+      "tsl_value": "Sim la poste",
+      "tsl_help": null,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    },
+    {
+     "object": "TranslateView",
+     "userkey": "V~SimLaPosteScope~FRA",
+     "item": {
+      "tsl_typeView": "V",
+      "tsl_id__viw_name": "SimLaPosteScope",
+      "tsl_lang": "FRA",
+      "tsl_value": "Sim la poste",
+      "tsl_help": null,
+      "row_module_id__mdl_name": "SimLaPoste"
+     }
+    }
+   ]
+  }
+ ]
+}

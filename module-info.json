@@ -1,0 +1,9 @@
+{
+    "date": "2023-11-07 17:34:06",
+    "name": "SimLaPoste",
+    "format": "json",
+    "files": ["SimLaPoste.json"],
+    "repository": {},
+    "version": "1",
+    "platform": "5.3.20"
+}

@@ -1,0 +1,497 @@
+#  ___ _            _ _    _ _    __
+# / __(_)_ __  _ __| (_)__(_) |_ /_/
+# \__ \ | '  \| '_ \ | / _| |  _/ -_)
+# |___/_|_|_|_| .__/_|_\__|_|\__\___|
+#             |_| Module: SimLaPoste 1
+components:
+  schemas:
+    Error404:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 404
+    SimLpPostalCode:
+      type: object
+      properties:
+        lpCpPostalCode:
+          description: Postal Code
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+        lpCpTownName:
+          description: Town Name
+          type: string
+        lpCpInseeCode:
+          description: Insee Code
+          type: string
+    ArrayOfSimLpPostalCode:
+      type: array
+      items:
+        $ref: '#/components/schemas/SimLpPostalCode'
+    ActionResult:
+      type: object
+      properties:
+        result:
+          description: Action result
+          type: string
+    TreeviewData:
+      type: object
+      properties:
+        item:
+          description: Object item with lists of linked objects' items
+          type: object
+    PublicationResult:
+      type: object
+      properties:
+        mime:
+          description: MIME type
+          type: string
+        content:
+          description: Content (plain text or base64 encoded)
+          type: string
+    PlaceData:
+      type: object
+      properties:
+        coord:
+          description: Geographical coordinates
+          type: string
+        address:
+          description: Address
+          type: string
+        row_id:
+          description: Row ID
+          type: string
+        label1:
+          description: 'Label #1'
+          type: string
+        label2:
+          description: 'Label #2'
+          type: string
+        label3:
+          description: 'Label #3'
+          type: string
+    Error400:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 400
+    Error401:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 401
+    Error500:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 500
+    PlaceMapData:
+      type: object
+      properties:
+        places:
+          description: Places
+          type: array
+          items:
+            $ref: '#/components/schemas/PlaceData'
+        name:
+          description: Name
+          type: string
+    Error403:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 403
+  securitySchemes:
+    basicAuth:
+      scheme: basic
+      type: http
+    bearerAuth:
+      bearerFormat: Simplicite token
+      scheme: bearer
+      type: http
+servers:
+- url: /api
+openapi: 3.0.2
+paths:
+  /rest/SimLpPostalCode/{row_id}:
+    post:
+      summary: Create a new SimLpPostalCode business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimLpPostalCode'
+      operationId: obj-simlppostalcode-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimLpPostalCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - SimLpPostalCode
+    get:
+      summary: Get a SimLpPostalCode business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-simlppostalcode-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimLpPostalCode'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - SimLpPostalCode
+    delete:
+      summary: Delete a SimLpPostalCode business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-simlppostalcode-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - SimLpPostalCode
+    put:
+      summary: Update a SimLpPostalCode business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimLpPostalCode'
+      operationId: obj-simlppostalcode-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimLpPostalCode'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - SimLpPostalCode
+  /login:
+    get:
+      summary: Login (obtain bearer token)
+      security:
+      - basicAuth: []
+      operationId: login
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json: {}
+            text/plain: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+      parameters:
+      - schema:
+          type: string
+          enum:
+          - json
+          - oauth2
+          - token
+        in: query
+        name: _output
+        description: Optional output format
+        required: false
+      tags:
+      - session
+  /logout:
+    get:
+      summary: Logout (revoke bearer token)
+      security:
+      - bearerAuth: []
+      operationId: logout
+      responses:
+        '200':
+          description: Successfull logout
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+      tags:
+      - session
+  /rest/SimLpPostalCode:
+    get:
+      summary: Search SimLpPostalCode business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-simlppostalcode-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfSimLpPostalCode'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: lpCpPostalCode
+        description: Search filter for Postal Code
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: lpCpInseeCode
+        description: Search filter for Insee Code
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: lpCpTownName
+        description: Search filter for Town Name
+        required: false
+      tags:
+      - SimLpPostalCode
+  /:
+    get:
+      summary: Get user session information
+      security:
+      - bearerAuth: []
+      operationId: info
+      responses:
+        '200':
+          description: Success in getting user session information
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: texts
+        description: Texts?
+        required: false
+      tags:
+      - session
+info:
+  license:
+    name: Simplicite license
+    url: http://www.simplicitesoftware.com
+  contact:
+    name: Simplicite Software
+    url: http://www.simplicitesoftware.com
+    email: contact@simplicitesoftware.com
+  description: API for module SimLaPoste
+  title: SimLaPoste
+  version: '1'
+tags:
+- name: SimLpPostalCode
+  description: Postal Code
