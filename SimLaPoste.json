@@ -610,6 +610,36 @@
    }]
   },
   {
+   "object": "Resource",
+   "label": "Resources",
+   "icon": "img/system/resource",
+   "field": "row_module_id",
+   "list": [{
+    "object": "Resource",
+    "userkey": "Disposition(default)~ANY~module-laposte",
+    "item": {
+     "res_object": {
+      "item": {"dis_code": "default"},
+      "icon": "img/system/disposition",
+      "label": "Disposition",
+      "userkeylabel": "default",
+      "object": "Disposition"
+     },
+     "res_type": "IMG",
+     "res_lang": "ANY",
+     "res_code": "module-laposte",
+     "res_cached": false,
+     "res_file": null,
+     "res_image": {
+      "path": "resources/Disposition/default/module-laposte.svg",
+      "mime": "image/svg+xml",
+      "name": "module-laposte.svg"
+     },
+     "row_module_id__mdl_name": "SimLaPoste"
+    }
+   }]
+  },
+  {
    "object": "TranslateField",
    "label": "Field translation",
    "icon": "img/system/translation",
