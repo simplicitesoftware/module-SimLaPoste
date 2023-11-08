@@ -17,21 +17,25 @@ public class SimLpPostalCode extends ObjectService {
 		"lpCpPostalCode", "code_postal",
 		"lpCpInseeCode", "code_commune_insee"
 	);
+	private static final String DATANOVA_API = "https://datanova.laposte.fr/data-fair/api/v1/datasets/laposte-hexasmal/lines";
 	
-	public List<String[]> searchService(boolean pagine){
-		/*String q ="";
-		for (Map.Entry<String, String> entry : MAP_FIELD_DATANOVA.entrySet()) {
-			if(getField(entry.getKey()).isFiltered())
-				q += entry.getValue()+"="+getField(entry.getKey()).getFilter();
-	    }*/
-	    
+	@Override
+	public long countService(){
+		try{
+			return (new JSONObject(RESTTool.get(getRequestUrl(1,1)))).getLong("total");
+		}
+		catch(Exception e){
+			AppLog.error(e, getGrant());
+			return super.countService();
+		}
+	}
+	
+	@Override
+	public List<String[]> searchService(boolean pg){
 	    try {
-			int nbRows = pagine ? (isMoreRows() ? getMaxRows() : getMinRows()) : getSearchLimit();
+			String res = RESTTool.get(getRequestUrl(rowsPerPage(pg), getPage(pg)));
 			
-			String res = RESTTool.get("https://datanova.laposte.fr/data-fair/api/v1/datasets/laposte-hexasmal/lines?select=code_commune_insee%2Cnom_de_la_commune%2Ccode_postal");//&qs=nom_de_la_commune%3A%22SCEAUX%22
-			
-			JSONObject json = new JSONObject(res);
-			JSONArray data = json.getJSONArray("results");
+			JSONArray data = (new JSONObject(res)).getJSONArray("results");
 			
 		    List<String[]> rows = new ArrayList<String[]>();
 			try {
@@ -41,26 +45,41 @@ public class SimLpPostalCode extends ObjectService {
 			} catch (JSONException e) {
 				AppLog.error(null, e, getGrant());
 			}
-			return json.getJSONArray("results");
+			return rows;
 		} catch(Exception e) {
 			AppLog.error(e, getGrant());
 			return null;
 		}
-	    
-	    
-	    AppLog.info(callService().toString(), Grant.getSystemAdmin());
-	    
-		JSONArray data = callService();
-	    List<String[]> rows = new ArrayList<String[]>();
-		try {
-			for (int i = 0; i < data.length(); i++) 
-				rows.add(getRow(String.valueOf(i), data.getJSONObject(i)));
-				
-		} catch (JSONException e) {
-			AppLog.error(null, e, getGrant());
-		}
-	    	
-		return rows;
+	}
+	
+	private String getRequestUrl(int rows, int page){
+		String url = DATANOVA_API;
+		
+		url = HTTPTool.append(url, "size", rows);
+		url = HTTPTool.append(url, "after", rows*page);
+		
+		// Declare which columns we want in results select=code_commune_insee%2Cnom_de_la_commune%2Ccode_postal
+		String p = "";
+		for (Map.Entry<String, String> entry : MAP_FIELD_DATANOVA.entrySet())
+			p += (Tool.isEmpty(p) ? "" : ",")+entry.getValue();
+		if(!Tool.isEmpty(p))
+			url = HTTPTool.append(url, "select", p);
+		
+		// Add filters
+		p = "";
+		for (Map.Entry<String, String> entry : MAP_FIELD_DATANOVA.entrySet())
+			if(getField(entry.getKey()).isFiltered()){
+				p += Tool.isEmpty(p) ? "" : " AND ";
+				p += entry.getValue()+":"+adaptFilter(getField(entry.getKey()).getFilter());
+			}
+		if(!Tool.isEmpty(p))
+			url = HTTPTool.append(url, "qs", p);
+			
+		return url;
+	}
+	
+	private String adaptFilter(String filter){
+		return "("+filter.replace("%", "*")+")";
 	}
 	
 	private String[] getRow(String rowId, JSONObject item){
@@ -73,26 +92,11 @@ public class SimLpPostalCode extends ObjectService {
 		return row;
 	}	
 
-	private ArrayList<String[]> getFakeRows(){
-		ArrayList<String[]> rows = new ArrayList<>();
-	    for(int i=0; i<10; i++)
-	    	rows.add(getFakeRow(String.valueOf(i)));
-	    return rows;
+	private int rowsPerPage(boolean pagine){
+		return pagine ? (isMoreRows() ? getMaxRows() : getMinRows()) : getSearchLimit();
 	}
 	
-	private String[] getFakeRow(String rowId){
-		String[] row = new String[getFields().size()];
-		
-		row[0] = rowId;
-		for (Map.Entry<String, String> entry : MAP_FIELD_DATANOVA.entrySet())
-			row[getFieldIndex(entry.getKey())] = "hey";
-		
-		return row;
-	}
-	
-	@Override
-	public boolean selectService(String rowId, boolean copy) {
-		setValues(getFakeRow(rowId));
-		return true;
+	private int getPage(boolean pagine){
+		return pagine ? getCurrentPage() : 0;
 	}
 }

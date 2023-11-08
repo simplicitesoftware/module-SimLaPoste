@@ -438,14 +438,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: lpCpPostalCode
-        description: Search filter for Postal Code
+        name: lpCpInseeCode
+        description: Search filter for Insee Code
         required: false
       - schema:
           type: string
         in: query
-        name: lpCpInseeCode
-        description: Search filter for Insee Code
+        name: lpCpPostalCode
+        description: Search filter for Postal Code
         required: false
       - schema:
           type: string

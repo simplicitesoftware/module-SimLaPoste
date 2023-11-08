@@ -252,13 +252,13 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: lpCpPostalCode
-        description: Search filter for Postal Code
+        name: lpCpInseeCode
+        description: Search filter for Insee Code
         type: string
         required: false
       - in: query
-        name: lpCpInseeCode
-        description: Search filter for Insee Code
+        name: lpCpPostalCode
+        description: Search filter for Postal Code
         type: string
         required: false
       - in: query

@@ -22,7 +22,7 @@ https://datanova.laposte.fr/datasets/laposte-hexasmal
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
 |--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `lpCpPostalCode`                                             | char(20)                                 |          | yes       |          | -                                                                                |
 | `lpCpInseeCode`                                              | char(50)                                 | yes*     | yes       |          | -                                                                                |
+| `lpCpPostalCode`                                             | char(20)                                 |          | yes       |          | -                                                                                |
 | `lpCpTownName`                                               | text(1000)                               |          | yes       |          | -                                                                                |
 
